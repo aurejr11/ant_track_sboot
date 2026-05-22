@@ -1,5 +1,6 @@
 package com.example.ant_track_sboot.modelo;
 
+
 import java.util.List;
 import com.example.ant_track_sboot.modelo.utils.Estado;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,10 +21,7 @@ public class Categoria {
     private String descripcion;
 
     @Column(nullable = false)
-    private double presupuestoMaximoMensual;
-
-    @Column(nullable = false)
-    private double gastoMensual;
+    private Double presupuestoMaximoMensual;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -42,12 +40,10 @@ public class Categoria {
    
    
 
-    public Categoria(String nombre, String descripcion, double presupuestoMaximoMensual, 
-        double gastoMensual ) {
+    public Categoria(String nombre, String descripcion, Double presupuestoMaximoMensual ) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.presupuestoMaximoMensual = presupuestoMaximoMensual;
-        this.gastoMensual = gastoMensual;
         this.estado = Estado.ACTIVO; //por default
      }
 
@@ -70,20 +66,12 @@ public class Categoria {
         this.descripcion = descripcion;
     }
 
-    public double getPresupuestoMaximoMensual() {
+    public Double getPresupuestoMaximoMensual() {
         return presupuestoMaximoMensual;
     }
 
-    public void setPresupuestoMaximoMensual(double presupuestoMaximoMensual) {
+    public void setPresupuestoMaximoMensual(Double presupuestoMaximoMensual) {
         this.presupuestoMaximoMensual = presupuestoMaximoMensual;
-    }
-
-    public double getGastoMensual() {
-        return gastoMensual;
-    }
-
-    public void setGastoMensual(double gastoMensual) {
-        this.gastoMensual = gastoMensual;
     }
 
     public void setId(Long id) {
